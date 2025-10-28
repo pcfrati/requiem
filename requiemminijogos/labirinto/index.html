@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Labirinto</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="info-panel">
+        <div class="info-content">
+            <div class="info-image">
+                <img src="img/placa-mae/placa-mae.png" alt="Imagem informativa">
+            </div>
+            <div class="info-text">
+                <p>Ande para a direita</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <header>
+            <h1>Siga o mapa e resolva o labirinto</h1>
+        </header>
+
+        <div class="game-container">
+            <canvas id="mazeCanvas" width="560" height="560"></canvas>
+            <div class="buttons-container">
+                <button id="resetBtn" class="small secondary">Reiniciar</button>
+                <button id="continueBtn">Pegar recompensa</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
