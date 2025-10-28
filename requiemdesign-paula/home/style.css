@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Press Start 2P", monospace;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container do fliperama */
+.arcade-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  position: relative;
+}
+
+/* Tela do jogo com barras laterais */
+.game-screen {
+  width: 1800px;
+  height: 1300px;
+  position: relative;
+  background-image: url('https://i.ibb.co/mFrkZKh0/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid #000000;
+  overflow: hidden;
+  border-left: 40px solid #000;  /* Barra preta esquerda */
+  border-right: 40px solid #000; /* Barra preta direita */
+}
+
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0); }
+  20%, 60% { transform: translate(-0.1vw, -0.1vh); }
+  40%, 80% { transform: translate(0.1vw, 0); }
+}
+
+.botao-imagem {
+  background: none;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: 23%;
+  left: 31%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: shake 0.5s infinite;
+  cursor: pointer;
+}
+
+.botao-imagem img {
+  width: 468px; /* 24% de 1800px */
+  height: 480px; /* 42% de 1300px */
+  image-rendering: pixelated;
+}
+
+.botao {
+  background: none;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: 37%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: shake 0.5s infinite;
+  cursor: pointer;
+}
+
+.botao img {
+  width: 630px; /* 35% de 1800px */
+  image-rendering: pixelated;
+}
+
+.botao2 {
+  background: none;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: 14%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: shake 0.5s infinite;
+  cursor: pointer;
+}
+
+.botao2 img {
+  width: 630px; /* 35% de 1800px */
+  image-rendering: pixelated;
+}
+
+.imagem-flutuante {
+  position: absolute;
+  height: 1115px; /* 90% de 1300px */
+  bottom: 0;
+  left: 10px; /* 5% de 1300px */
+  width: 1230px; /* 57% de 1800px */
+  image-rendering: pixelated;
+  z-index: 1;
+  animation: shake 0.5s infinite;
+}

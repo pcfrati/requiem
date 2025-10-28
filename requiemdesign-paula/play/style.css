@@ -1,0 +1,313 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Press Start 2P", monospace;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container do fliperama */
+.arcade-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  position: relative;
+}
+
+/* Tela do jogo com barras laterais */
+.game-screen {
+  width: 1800px;
+  height: 1300px;
+  position: relative;
+  background-image: url('imagens/fundo.webp');
+  background-size: auto 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: all 0.6s ease; /* Mudei de 0.3s para 0.6s também */
+  border: 2px solid #000000;
+  overflow: hidden;
+}
+
+/* Quando o menu abre, empurra o fundo */
+.game-screen.menu-open {
+  background-position: calc(50% - 125px) center;
+}
+
+/* Botões fixos na lateral direita */
+.botoes-lateral {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  background-color: #000000;
+  border-radius: 30px 0 0px 30px;
+  padding: 30px 0px 30px 30px;
+  z-index: 3;
+  transition: opacity 0.3s ease;
+}
+
+.botoes-lateral.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#menu {
+  position: absolute;
+  top: 47%; /* Centraliza verticalmente */
+  right: -520px;
+  width: 520px;
+  height: 65%;
+  background-color: #000000;
+  color: white;
+  padding: 20px;
+  transition: right 0.6s ease; /* Mudei de 0.3s para 0.6s - mais devagar */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-50%); /* Ajusta para centralizar perfeitamente */
+  border-radius: 30px 0 0px 30px;
+}
+
+#menu.open {
+  right: 0;
+}
+
+.botoes-menu {
+  display: none;
+  flex-direction: row;
+  gap: 22px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+#menu.open .botoes-menu {
+  display: flex;
+}
+
+/* Botões */
+button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+#botao-verde-lateral,
+#botao-verde-menu {
+  background-color: #5AFE03;
+}
+
+#botao-vermelho-lateral,
+#botao-vermelho-menu {
+  background-color: #F51F44;
+}
+
+
+
+
+
+
+
+/* Container dos botões do menu */
+.menu-botoes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  margin-top: 3px;
+  flex: 1;
+  justify-content: center;
+}
+
+/* Estilo dos botões pixelados */
+.pixel2 {
+  font-size: 20px;
+  color: red;
+  height: auto;
+  font-family: 'VT323';
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  width: 410px;
+  height: 130px;
+}
+
+.pixel2:active {
+  top: 2px;
+}
+
+.pixel2 {
+  position: relative;
+  display: block;
+  margin: 0;
+  font-family: 'VT323';
+  text-transform: uppercase;
+  font-size: 20px;
+  color: red;
+}
+
+.pixel2::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: -20px;
+  right: -20px;
+  background: white;
+  z-index: -1;
+}
+
+.pixel2::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: -12px;
+  right: -12px;
+  background: white;
+  z-index: -1;
+}
+
+.pixel2 {
+  padding: 15px 10px;
+  position: relative;
+  background: white;
+  width: 410px;
+  height: 130px;
+  z-index: 2;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+/* Botão com imagem */
+.pixel2.imagem-botao {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pixel2.imagem-botao img {
+  width: 100%;
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+/* Efeito hover nos botões */
+.pixel2:hover {
+  background: #f0f0f0;
+}
+
+.pixel2:hover::before {
+  background: #f0f0f0;
+}
+
+.pixel2:hover::after {
+  background: #f0f0f0;
+}
+
+
+
+
+/* Botão com imagem - cor especial */
+.pixel2.imagem-botao {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #c4d6a8; /* LARANJA - você pode mudar para qualquer cor */
+  border: 2px solid #c4d6a8; /* mesma cor da borda */
+  cursor: default;
+}
+
+.pixel2.imagem-botao::before {
+  background: #c4d6a8; /* tom mais escuro para o efeito de profundidade */
+}
+
+.pixel2.imagem-botao::after {
+  background: #c4d6a8; /* tom mais claro para o efeito de profundidade */
+}
+
+/* Efeito hover específico para o botão da imagem */
+.pixel2.imagem-botao:hover {
+  background: #c4d6a8;
+}
+
+.pixel2.imagem-botao:hover::before {
+  background: #c4d6a8;
+}
+
+.pixel2.imagem-botao:hover::after {
+  background: #c4d6a8;
+}
+
+
+
+
+
+.imagem-movel {
+  position: absolute;
+  top: 22%; /* Distância do topo */
+  left: 45%; /* Distância da esquerda */
+  transition: all 0.6s ease;
+  z-index: 1;
+}
+
+.imagem-movel img {
+  width: 330px; /* Tamanho da imagem */
+  height: auto;
+  image-rendering: pixelated;
+}
+
+/* Move a imagem na mesma direção e quantidade do fundo */
+.game-screen.menu-open .imagem-movel {
+  left: calc(38% - 10px);
+}
+
+
+
+
+.seta2 {
+  background: none;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: 7%;
+  left: 3%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: shake 0.5s infinite;
+  cursor: pointer;
+}
+
+.seta2 img {
+  width: 160px;
+  image-rendering: pixelated;
+}
+
+.seta2:hover {
+  opacity: 80%;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>REQUIEM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Container principal do fliperama -->
+  <div class="arcade-container">
+    
+    <!-- Tela do jogo -->
+    <div class="game-screen" id="gameScreen">
+      
+      <audio autoplay loop>
+        <source src="tema.wav" type="audio/wav">
+        Seu navegador não suporta áudio HTML5.
+      </audio>
+
+      <img class="tela" src="https://i.ibb.co/BHmwQM31/tela.png" alt="Tela">
+
+      <!-- Container dos botões -->
+      <!-- Container dos botões -->
+      <div class="botoes-container">
+        <!-- Linha de cima -->
+        <div class="linha-botoes">
+          <button class="botao-nivel" data-nivel="1">
+            <img src="https://i.ibb.co/Zzps0mLb/level1.png" alt="Nível 1">
+          </button>
+          <button class="botao-nivel" data-nivel="2">
+            <img src="https://i.ibb.co/MDmq6m10/level2.png" alt="Nível 2">
+          </button>
+          <button class="botao-nivel" data-nivel="3">
+            <img src="https://i.ibb.co/MDN4hshP/level3.png" alt="Nível 3">
+          </button>
+        </div>
+        
+        <!-- Linha de baixo -->
+        <div class="linha-botoes">
+          <button class="botao-nivel" data-nivel="4">
+            <img src="https://i.ibb.co/3yfQVys4/level4.png" alt="Nível 4">
+          </button>
+          <button class="botao-nivel" data-nivel="5">
+            <img src="https://i.ibb.co/fVPc7p2G/level5.png" alt="Nível 5">
+          </button>
+          <button class="botao-nivel" data-nivel="6">
+            <img src="https://i.ibb.co/TMbyhgth/level6.png" alt="Nível 6">
+          </button>
+        </div>
+      </div>
+
+      <button class="seta">
+        <img src="https://i.ibb.co/1Yd265Qn/seta.png" alt="Seta" />
+      </button>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
