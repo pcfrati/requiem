@@ -10,6 +10,9 @@ const fecharLateral = document.getElementById('botao-vermelho-lateral');
 const abrirMenu = document.getElementById('botao-verde-menu');
 const fecharMenu = document.getElementById('botao-vermelho-menu');
 
+// Botão cruz
+const botaoCruz = document.getElementById('botaoCruz');
+
 function abrir() {
   menu.classList.add('open');
   gameScreen.classList.add('menu-open');
@@ -28,4 +31,8 @@ fecharLateral.addEventListener('click', fechar);
 abrirMenu.addEventListener('click', abrir);
 fecharMenu.addEventListener('click', fechar);
 
-// Prevenção do F11
+botaoCruz.addEventListener('click', function() {
+  this.classList.toggle('ativo');
+  
+  console.log('Botão cruz clicado!');
+});

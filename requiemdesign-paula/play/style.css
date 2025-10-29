@@ -1,8 +1,16 @@
+/* ===== RESET E CONFIGURAÇÕES GLOBAIS ===== */
+
+/**
+ * Reset básico para remover margens e paddings padrão
+ * box-sizing: border-box para facilitar dimensionamento
+ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* ===== ESTILOS GERAIS DO BODY ===== */
 
 body {
   margin: 0;
@@ -15,7 +23,8 @@ body {
   align-items: center;
 }
 
-/* Container do fliperama */
+/* ===== CONTAINER PRINCIPAL DO FLIPERAMA ===== */
+
 .arcade-container {
   width: 100vw;
   height: 100vh;
@@ -26,7 +35,8 @@ body {
   position: relative;
 }
 
-/* Tela do jogo com barras laterais */
+/* ===== TELA DO JOGO ===== */
+
 .game-screen {
   width: 1800px;
   height: 1300px;
@@ -35,17 +45,18 @@ body {
   background-size: auto 100%;
   background-position: center center;
   background-repeat: no-repeat;
-  transition: all 0.6s ease; /* Mudei de 0.3s para 0.6s também */
+  transition: all 0.6s ease;
   border: 2px solid #000000;
   overflow: hidden;
 }
 
-/* Quando o menu abre, empurra o fundo */
+/* Estado quando o menu está aberto */
 .game-screen.menu-open {
   background-position: calc(50% - 125px) center;
 }
 
-/* Botões fixos na lateral direita */
+/* ===== BOTÕES LATERAIS ===== */
+
 .botoes-lateral {
   position: absolute;
   right: 0px;
@@ -61,32 +72,37 @@ body {
   transition: opacity 0.3s ease;
 }
 
+/* Estado escondido dos botões laterais */
 .botoes-lateral.hidden {
   opacity: 0;
   pointer-events: none;
 }
 
+/* ===== MENU LATERAL ===== */
+
 #menu {
   position: absolute;
-  top: 47%; /* Centraliza verticalmente */
+  top: 47%;
   right: -520px;
   width: 520px;
   height: 65%;
   background-color: #000000;
   color: white;
   padding: 20px;
-  transition: right 0.6s ease; /* Mudei de 0.3s para 0.6s - mais devagar */
+  transition: right 0.6s ease;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  transform: translateY(-50%); /* Ajusta para centralizar perfeitamente */
+  transform: translateY(-50%);
   border-radius: 30px 0 0px 30px;
 }
 
+/* Estado aberto do menu */
 #menu.open {
   right: 0;
 }
 
+/* Container dos botões dentro do menu */
 .botoes-menu {
   display: none;
   flex-direction: row;
@@ -96,11 +112,13 @@ body {
   margin-left: 50px;
 }
 
+/* Mostra botões quando menu está aberto */
 #menu.open .botoes-menu {
   display: flex;
 }
 
-/* Botões */
+/* ===== ESTILOS BASE PARA BOTÕES ===== */
+
 button {
   width: 50px;
   height: 50px;
@@ -108,6 +126,7 @@ button {
   cursor: pointer;
 }
 
+/* Cores específicas para botões */
 #botao-verde-lateral,
 #botao-verde-menu {
   background-color: #5AFE03;
@@ -118,13 +137,8 @@ button {
   background-color: #F51F44;
 }
 
+/* ===== CONTAINER DOS BOTÕES DO MENU ===== */
 
-
-
-
-
-
-/* Container dos botões do menu */
 .menu-botoes-container {
   display: flex;
   flex-direction: column;
@@ -135,7 +149,12 @@ button {
   justify-content: center;
 }
 
-/* Estilo dos botões pixelados */
+/* ===== ESTILOS PIXEL ART PARA BOTÕES ===== */
+
+/**
+ * Botões com estilo pixelado
+ * Usa a fonte VT323 para efeito retrô
+ */
 .pixel2 {
   font-size: 20px;
   color: red;
@@ -152,10 +171,12 @@ button {
   height: 130px;
 }
 
+/* Efeito de pressionar */
 .pixel2:active {
   top: 2px;
 }
 
+/* Estrutura base do botão pixelado */
 .pixel2 {
   position: relative;
   display: block;
@@ -166,6 +187,7 @@ button {
   color: red;
 }
 
+/* Camadas de efeito 3D para o botão pixelado */
 .pixel2::before {
   content: "";
   display: block;
@@ -190,6 +212,7 @@ button {
   z-index: -1;
 }
 
+/* Corpo principal do botão */
 .pixel2 {
   padding: 15px 10px;
   position: relative;
@@ -200,14 +223,19 @@ button {
   border: 2px solid rgb(255, 255, 255);
 }
 
-/* Botão com imagem */
+/* ===== BOTÕES COM IMAGEM ===== */
+
 .pixel2.imagem-botao {
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #c4d6a8;
+  border: 2px solid #c4d6a8;
+  cursor: default;
 }
 
+/* Imagem dentro do botão */
 .pixel2.imagem-botao img {
   width: 100%;
   height: auto;
@@ -216,7 +244,18 @@ button {
   image-rendering: pixelated;
 }
 
-/* Efeito hover nos botões */
+/* Camadas de efeito para botão com imagem */
+.pixel2.imagem-botao::before {
+  background: #c4d6a8;
+}
+
+.pixel2.imagem-botao::after {
+  background: #c4d6a8;
+}
+
+/* ===== ESTADOS DE HOVER ===== */
+
+/* Hover para botões regulares */
 .pixel2:hover {
   background: #f0f0f0;
 }
@@ -229,29 +268,7 @@ button {
   background: #f0f0f0;
 }
 
-
-
-
-/* Botão com imagem - cor especial */
-.pixel2.imagem-botao {
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #c4d6a8; /* LARANJA - você pode mudar para qualquer cor */
-  border: 2px solid #c4d6a8; /* mesma cor da borda */
-  cursor: default;
-}
-
-.pixel2.imagem-botao::before {
-  background: #c4d6a8; /* tom mais escuro para o efeito de profundidade */
-}
-
-.pixel2.imagem-botao::after {
-  background: #c4d6a8; /* tom mais claro para o efeito de profundidade */
-}
-
-/* Efeito hover específico para o botão da imagem */
+/* Hover específico para botão com imagem */
 .pixel2.imagem-botao:hover {
   background: #c4d6a8;
 }
@@ -264,32 +281,29 @@ button {
   background: #c4d6a8;
 }
 
+/* ===== ELEMENTOS VISUAIS E ANIMAÇÕES ===== */
 
-
-
-
+/* Imagem móvel na tela */
 .imagem-movel {
   position: absolute;
-  top: 22%; /* Distância do topo */
-  left: 45%; /* Distância da esquerda */
+  top: 22%;
+  left: 45%;
   transition: all 0.6s ease;
   z-index: 1;
 }
 
 .imagem-movel img {
-  width: 330px; /* Tamanho da imagem */
+  width: 330px;
   height: auto;
   image-rendering: pixelated;
 }
 
-/* Move a imagem na mesma direção e quantidade do fundo */
+/* Move imagem quando menu abre */
 .game-screen.menu-open .imagem-movel {
   left: calc(38% - 10px);
 }
 
-
-
-
+/* Seta com animação */
 .seta2 {
   background: none;
   border: none;
@@ -310,4 +324,89 @@ button {
 
 .seta2:hover {
   opacity: 80%;
+}
+
+/* ===== BOTÃO CRUZ (MENU) ===== */
+
+.botao-cruz {
+  position: absolute;
+  top: 9%;
+  right: 5%;
+  transform: translate(50%, -50%);
+  width: 95px;
+  height: 95px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.6s ease;
+}
+
+
+/* Partes da cruz */
+.botao-cruz::before,
+.botao-cruz::after,
+.botao-cruz span::before,
+.botao-cruz span::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 13px solid white;
+  transition: transform 0.5s ease-out, border-color 0.3s;
+  transform-origin: center;
+}
+
+/* Posicionamento dos cantos */
+.botao-cruz::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.botao-cruz::after {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.botao-cruz span::before {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.botao-cruz span::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+/* Estados do botão cruz */
+.botao-cruz.ativo::before {
+  transform: rotate(180deg) translate(6px, 6px);
+}
+
+.botao-cruz.ativo::after {
+  transform: rotate(-180deg) translate(-6px, 6px);
+}
+
+.botao-cruz.ativo span::before {
+  transform: rotate(-180deg) translate(6px, -6px);
+}
+
+.botao-cruz.ativo span::after {
+  transform: rotate(180deg) translate(-6px, -6px);
+}
+
+/* Efeito hover no botão cruz */
+.botao-cruz:hover::before,
+.botao-cruz:hover::after,
+.botao-cruz:hover span::before,
+.botao-cruz:hover span::after {
+  border-color: #5AFE03;
 }

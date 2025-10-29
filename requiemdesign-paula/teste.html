@@ -1,41 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>REQUIEM</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="teste.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Botão Cruz Animado</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #111;
+  }
+
+  .botao-cruz {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .botao-cruz::before,
+  .botao-cruz::after,
+  .botao-cruz span::before,
+  .botao-cruz span::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 13px solid white;
+    transition: transform 0.5s ease-out, border-color 0.3s;
+    transform-origin: center;
+  }
+
+  /* Cantos voltados pra dentro (forma inicial) */
+  .botao-cruz::before {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .botao-cruz::after {
+    top: 0;
+    right: 0;
+    border-left: none;
+    border-bottom: none;
+  }
+
+  .botao-cruz span::before {
+    bottom: 0;
+    left: 0;
+    border-right: none;
+    border-top: none;
+  }
+
+  .botao-cruz span::after {
+    bottom: 0;
+    right: 0;
+    border-left: none;
+    border-top: none;
+  }
+
+  /* Estado ativo (quando clicado) */
+  .botao-cruz.ativo::before {
+    transform: rotate(180deg) translate(6px, 6px);
+  }
+
+  .botao-cruz.ativo::after {
+    transform: rotate(-180deg) translate(-6px, 6px);
+  }
+
+  .botao-cruz.ativo span::before {
+    transform: rotate(-180deg) translate(6px, -6px);
+  }
+
+  .botao-cruz.ativo span::after {
+    transform: rotate(180deg) translate(-6px, -6px);
+  }
+</style>
 </head>
-
 <body>
-  <!-- Container principal do fliperama -->
-  <div class="arcade-container">
-    
-    <!-- Tela do jogo -->
-    <div class="game-screen" id="gameScreen">
-      
-      <audio autoplay loop>
-        <source src="tema.wav" type="audio/wav">
-        Seu navegador não suporta áudio HTML5.
-      </audio>
 
-      <button class="botao-imagem">
-        <img src="home/imagens/placa.png" alt="Botão" />
-      </button>
+<button class="botao-cruz" id="botaoCruz"><span></span></button>
 
-      <button class="botao">
-        <img src="home/imagens/btn2.png" alt="Botão" />
-      </button>
+<script>
+  const botao = document.getElementById('botaoCruz');
+  
+  botao.addEventListener('click', function() {
+    // Alterna a classe 'ativo' a cada clique
+    this.classList.toggle('ativo');
+  });
+</script>
 
-      <button class="botao2">
-        <img src="home/imagens/btn.png" alt="Botão" />
-      </button>
-
-      <img src="home/imagens/tv.png" alt="Personagem" class="imagem-flutuante" />
-      
-    </div>
-  </div>
-
-  <script src="teste.js"></script>
 </body>
 </html>
