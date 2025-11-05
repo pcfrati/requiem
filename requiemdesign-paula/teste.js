@@ -1,23 +1,38 @@
-const botaoImagem = document.querySelector('.botao-imagem img');
-botaoImagem.addEventListener('mouseenter', () => {
-  botaoImagem.src = 'home/imagens/placa-hover.png';
-});
-botaoImagem.addEventListener('mouseleave', () => {
-  botaoImagem.src = 'home/imagens/placa.png';
-});
+const menu = document.getElementById('menu');
+const gameScreen = document.getElementById('gameScreen');
+const botoesLateral = document.getElementById('botoes-lateral');
 
-const botao2Imagem = document.querySelector('.botao2 img');
-botao2Imagem.addEventListener('mouseenter', () => {
-  botao2Imagem.src = 'home/imagens/btn2-hover.png';
-});
-botao2Imagem.addEventListener('mouseleave', () => {
-  botao2Imagem.src = 'home/imagens/btn.png';
-});
+// Botões da lateral
+const abrirLateral = document.getElementById('botao-verde-lateral');
+const fecharLateral = document.getElementById('botao-vermelho-lateral');
 
-const botao3Imagem = document.querySelector('.botao img');
-botao3Imagem.addEventListener('mouseenter', () => {
-  botao3Imagem.src = 'home/imagens/btn-hover.png';
-});
-botao3Imagem.addEventListener('mouseleave', () => {
-  botao3Imagem.src = 'home/imagens/btn2.png';
+// Botões dentro do menu
+const abrirMenu = document.getElementById('botao-verde-menu');
+const fecharMenu = document.getElementById('botao-vermelho-menu');
+
+// Botão cruz
+const botaoCruz = document.getElementById('botaoCruz');
+
+function abrir() {
+  menu.classList.add('open');
+  gameScreen.classList.add('menu-open');
+  botoesLateral.classList.add('hidden');
+}
+
+function fechar() {
+  menu.classList.remove('open');
+  gameScreen.classList.remove('menu-open');
+  botoesLateral.classList.remove('hidden');
+}
+
+// Ações dos botões
+abrirLateral.addEventListener('click', abrir);
+fecharLateral.addEventListener('click', fechar);
+abrirMenu.addEventListener('click', abrir);
+fecharMenu.addEventListener('click', fechar);
+
+botaoCruz.addEventListener('click', function() {
+  this.classList.toggle('ativo');
+  
+  console.log('Botão cruz clicado!');
 });

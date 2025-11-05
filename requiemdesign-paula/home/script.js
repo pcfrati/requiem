@@ -21,3 +21,31 @@ botao3Imagem.addEventListener('mouseenter', () => {
 botao3Imagem.addEventListener('mouseleave', () => {
   botao3Imagem.src = 'https://i.ibb.co/p6RNrrZL/btn2.png';
 });
+
+
+
+
+// Configurar áudio WAV
+const audio = document.getElementById('backgroundMusic');
+let audioStarted = false;
+
+// Função para iniciar áudio
+function startAudio() {
+  if (!audioStarted) {
+    audio.play().then(() => {
+      console.log('Áudio WAV iniciado com sucesso');
+      audioStarted = true;
+    }).catch(e => {
+      console.log('Erro ao reproduzir WAV:', e);
+    });
+  }
+}
+
+// Iniciar áudio na primeira interação do usuário
+document.addEventListener('click', startAudio, { once: true });
+document.addEventListener('keydown', startAudio, { once: true });
+
+// Também pode iniciar quando interagir com os botões existentes
+document.querySelectorAll('.botao-imagem, .botao, .botao2').forEach(botao => {
+  botao.addEventListener('click', startAudio);
+});
