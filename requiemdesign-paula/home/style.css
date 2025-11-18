@@ -27,7 +27,7 @@ body {
 }
 
 /* Tela do jogo com barras laterais */
-.game-screen {
+.game-screen2 {
   width: 1200px; /* 1800 * 2/3 */
   height: 867px; /* 1300 * 2/3 */
   position: relative;

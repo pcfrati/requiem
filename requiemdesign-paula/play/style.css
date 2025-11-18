@@ -37,11 +37,12 @@ body {
 
 /* ===== TELA DO JOGO ===== */
 
-.game-screen {
+.game-screen1 {
   width: 1200px; /* 1800 * 2/3 */
   height: 867px; /* 1300 * 2/3 */
   position: relative;
-  background-image: url('imagens/fundo.webp');
+  background-image: url();
+  background-color: #F51F44;
   background-size: auto 100%;
   background-position: center center;
   background-repeat: no-repeat;
@@ -51,7 +52,7 @@ body {
 }
 
 /* Estado quando o menu está aberto */
-.game-screen.menu-open {
+.game-screen1.menu-open {
   background-position: calc(50% - 83px) center; /* 125 * 2/3 */
 }
 
@@ -76,6 +77,23 @@ body {
 .botoes-lateral.hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+/* Estilização dos botões dentro de botoes-lateral */
+.botoes-lateral button {
+  width: 33px; /* 50 * 2/3 */
+  height: 33px; /* 50 * 2/3 */
+  border: none;
+  cursor: pointer;
+}
+
+/* Cores específicas para botões laterais */
+.botoes-lateral #botao-verde-lateral {
+  background-color: #5AFE03;
+}
+
+.botoes-lateral #botao-vermelho-lateral {
+  background-color: #F51F44;
 }
 
 /* ===== MENU LATERAL ===== */
@@ -117,23 +135,20 @@ body {
   display: flex;
 }
 
-/* ===== ESTILOS BASE PARA BOTÕES ===== */
-
-button {
+/* Estilização dos botões dentro de botoes-menu */
+.botoes-menu button {
   width: 33px; /* 50 * 2/3 */
   height: 33px; /* 50 * 2/3 */
   border: none;
   cursor: pointer;
 }
 
-/* Cores específicas para botões */
-#botao-verde-lateral,
-#botao-verde-menu {
+/* Cores específicas para botões do menu */
+.botoes-menu #botao-verde-menu {
   background-color: #5AFE03;
 }
 
-#botao-vermelho-lateral,
-#botao-vermelho-menu {
+.botoes-menu #botao-vermelho-menu {
   background-color: #F51F44;
 }
 
@@ -299,7 +314,7 @@ button {
 }
 
 /* Move imagem quando menu abre */
-.game-screen.menu-open .imagem-movel {
+.game-screen1.menu-open .imagem-movel {
   left: calc(38% - 7px); /* 10 * 2/3 */
 }
 
@@ -309,8 +324,8 @@ button {
   border: none;
   padding: 0;
   position: absolute;
-  top: 4%;
-  left: 3%;
+  top: 7%;
+  left: 5%;
   transform: translate(-50%, -50%);
   z-index: 2;
   animation: shake 0.5s infinite;
@@ -408,4 +423,41 @@ button {
 .botao-cruz:hover span::before,
 .botao-cruz:hover span::after {
   border-color: #5AFE03;
+}
+
+
+
+
+
+/* ===== CONTAINER INFERIOR ===== */
+
+.bottom-container {
+  position: absolute;
+  bottom: 20px; /* Distância da parte inferior */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* Largura do container */
+  max-width: 900px;
+  background-color: #000000;
+  border: 5px solid #ffffff;
+  padding: 15px;
+  z-index: 10;
+  transition: all 0.6s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Estado quando o menu está aberto */
+.bottom-container.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(20px);
+}
+
+/* Conteúdo dentro do container */
+.container-content {
+  color: #ffffff;
+  text-align: center;
+  font-family: 'VT323', monospace;
+  font-size: 25px;
 }

@@ -1,0 +1,131 @@
+
+
+
+
+
+
+/* === REQUIEM ARCADE STYLE === */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Press Start 2P", monospace;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container do fliperama */
+.arcade-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  position: relative;
+}
+
+/* Tela do jogo com barras laterais */
+.game-screen {
+  width: 1200px; /* 1800 * 2/3 */
+  height: 867px; /* 1300 * 2/3 */
+  position: relative;
+  background-image: url('https://i.ibb.co/jP07BwDb/backgroundlevel.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #000;
+  overflow: hidden;
+  border-left: 27px solid #000;
+  border-right: 27px solid #000;
+}
+
+/* Botão da seta */
+.seta {
+  background: none;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: 10%;
+  left: 6%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: shake 0.5s infinite;
+  cursor: pointer;
+}
+
+.seta img {
+  width: 107px;
+  image-rendering: pixelated;
+}
+
+.seta:hover {
+  opacity: 80%;
+}
+
+/* Tela principal */
+.tela {
+  width: 1133px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  image-rendering: pixelated;
+}
+
+/* Container dos botões */
+.botoes-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 553px;
+  height: 367px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 3;
+}
+
+/* Linhas de botões */
+.linha-botoes {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Botões dos níveis */
+.botao-nivelX {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 432.5px;
+  height: 417.5px;
+  position: relative;
+  transition: all 0.2s ease;
+  transform: translateX(52px);
+  bottom: 25px;
+}
+
+.botao-nivelX img {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.botao-nivelX:hover {
+  opacity: 80%;
+}
+
+.botao-nivelX:active {
+  opacity: 50%;
+}

@@ -1,3 +1,12 @@
+
+
+
+
+
+
+/* === REQUIEM ARCADE STYLE === */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,14 +14,13 @@
 }
 
 body {
-  margin: 0;
-  height: 100vh;
   font-family: "Press Start 2P", monospace;
-  overflow: hidden;
   background: #000;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 /* Container do fliperama */
@@ -35,12 +43,13 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border: 1px solid #000000; /* 2 * 2/3 */
+  border: 1px solid #000;
   overflow: hidden;
-  border-left: 27px solid #000;  /* 40 * 2/3 - Barra preta esquerda */
-  border-right: 27px solid #000; /* 40 * 2/3 - Barra preta direita */
+  border-left: 27px solid #000;
+  border-right: 27px solid #000;
 }
 
+/* Botão da seta */
 .seta {
   background: none;
   border: none;
@@ -55,7 +64,7 @@ body {
 }
 
 .seta img {
-  width: 107px; /* 160 * 2/3 */
+  width: 107px;
   image-rendering: pixelated;
 }
 
@@ -63,8 +72,9 @@ body {
   opacity: 80%;
 }
 
+/* Tela principal */
 .tela {
-  width: 1133px; /* 1700 * 2/3 */
+  width: 1133px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -78,27 +88,28 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 553px; /* 830 * 2/3 - Largura da área dos botões */
-  height: 367px; /* 550 * 2/3 - Altura da área dos botões */
+  width: 553px;
+  height: 367px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 3; /* Acima da tela */
+  z-index: 3;
 }
 
-/* Linha de botões */
+/* Linhas de botões */
 .linha-botoes {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
+/* Botões dos níveis */
 .botao-nivel {
   background: none;
   border: none;
   cursor: pointer;
-  width: 173px; /* 260 * 2/3 */
-  height: 167px; /* 250 * 2/3 */
+  width: 173px;
+  height: 167px;
   position: relative;
   transition: all 0.2s ease;
 }
@@ -110,9 +121,9 @@ body {
 }
 
 .botao-nivel:hover {
-  transform: translateY(-1px); /* 2 * 2/3 */
+  transform: translateY(-1px);
 }
 
 .botao-nivel:active {
-  transform: translateY(1px); /* 2 * 2/3 */
+  transform: translateY(1px);
 }
