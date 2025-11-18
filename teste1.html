@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borrão</title>
+  <link rel="stylesheet" href="teste1.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Tela principal do jogo -->
+  <div id="gameScreen">
+    <h1>Revele a imagem</h1>
+    <canvas id="gameCanvas" width="600" height="500"></canvas>
+
+    <div class="slider-container">
+      <input type="range" id="slider1" min="0" max="100" value="50">
+    </div>
+    <div class="slider-container">
+      <input type="range" id="slider2" min="0" max="100" value="50">
+    </div>
+    
+    <div>
+      <button id="continueBtn">Pegar recompensa</button>
+    </div>
+  </div>
+
+  <!-- Tela de recompensa -->
+  <div id="recompensaScreen">
+    <div class="recompensa-text">Recompensa recebida</div>
+    <img src="requiemminijogos/borrao/img/bateria_litio.png" alt="Bateria de Lítio" />
+    <div class="recompensa-text">Leve até a placa mãe.</div>
+    <button id="confirmBtn">ok</button>
+  </div>
+
+  <script src="teste1.js"></script>
+</body>
+</html>
