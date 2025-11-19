@@ -1,9 +1,3 @@
-
-
-
-
-
-
 /* === REQUIEM ARCADE STYLE === */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
@@ -39,7 +33,7 @@ body {
   width: 1200px; /* 1800 * 2/3 */
   height: 867px; /* 1300 * 2/3 */
   position: relative;
-  background-color: rgb(59, 59, 59);
+  background-color: rgb(0, 0, 0);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -51,7 +45,7 @@ body {
 
 /* Tela principal */
 .tela {
-  width: 1225px;
+  width: 1255px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -59,8 +53,8 @@ body {
   image-rendering: pixelated;
 }
 
-/* Container dos botões */
-.jogos-container {
+/* Container do jogo Borrão */
+.jogo-container {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -70,5 +64,167 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   z-index: 3;
+  color: #3233ff;
+  text-align: center;
+  padding: 20px;
+}
+
+#gameScreen1 h1 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px #3233ff;
+}
+
+canvas {
+  border: 2px solid #3233ff;
+  box-shadow: 0 0 20px #3233ff;
+  image-rendering: pixelated;
+  position: relative;
+  z-index: 1;
+  width: 406px;
+}
+
+canvas::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 153, 0.05),
+    rgba(0, 255, 153, 0.05) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 2;
+}
+
+.slider-container {
+  margin: 10px 0;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 300px;
+  height: 10px;
+  background: #03002a;
+  border: 2px solid #3233ff;
+  image-rendering: pixelated;
+  box-shadow: 0 0 5px #3233ff;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #3233ff;
+  border: 2px solid #000;
+  cursor: pointer;
+  box-shadow: 0 0 3px #3233ff;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: #3233ff;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+#continueBtn {
+  display: none;
+  margin-top: 10px;
+  padding: 12px 32px;
+  background: transparent;
+  border: 2px solid #3233ff;
+  color: #3233ff;
+  font-size: 14px;
+  font-family: 'Press Start 2P', monospace;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  box-shadow: 0 0 8px #3233ff;
+  image-rendering: pixelated;
+}
+
+#continueBtn:hover {
+  background: #3233ff;
+  color: #000;
+  animation: glitch 0.6s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Estilos específicos para a tela de recompensa */
+#recompensaScreen {
+  display: none;
+  margin: 0;
+  background-color: #000;
+  color: #3233ff;
+  font-family: 'Press Start 2P', monospace;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  gap: 24px;
+}
+
+#recompensaScreen img {
+  width: 2000px;
+  height: 150px;
+  image-rendering: pixelated;
+}
+
+.recompensa-text {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+#confirmBtn {
+  margin-top: 20px;
+  padding: 12px 32px;
+  background: transparent;
+  border: 2px solid #3233ff;
+  color: #3233ff;
+  font-size: 12px;
+  font-family: 'Press Start 2P', monospace;
+  cursor: pointer;
+  box-shadow: 0 0 6px #3233ff;
+  transition: background 0.3s, color 0.3s;
+}
+
+#confirmBtn:hover {
+  background: #3233ff;
+  color: #000;
+}
+
+
+
+
+/* No seu CSS, adicione estas regras: */
+canvas, #gameScreen1 img {
+  width: 600px !important;
+  height: 300px !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+}
+
+#gameCanvas {
+  width: 600px !important;
+  height: 500px !important;
 }

@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d");
 const slider1 = document.getElementById("slider1");
 const slider2 = document.getElementById("slider2");
 const btn = document.getElementById("continueBtn");
+const imageContainer = document.querySelector('.image-container');
 
 const imagem = new Image();
 imagem.src = "img/zoios.png";
@@ -44,12 +45,10 @@ function desenhar() {
       gifElement.src = "img/zoios.gif";
       gifElement.width = 600;
       gifElement.height = 500;
-      gifElement.style.border = "2px solid #3233ff";
-      gifElement.style.boxShadow = "0 0 20px #3233ff";
-      gifElement.style.imageRendering = "pixelated";
+      gifElement.classList.add("gif-recompensa");
       
-      // Insere o GIF no lugar do canvas
-      canvas.parentNode.insertBefore(gifElement, canvas);
+      // Insere o GIF no container da imagem (no lugar do canvas)
+      imageContainer.appendChild(gifElement);
       
       return;
     }
