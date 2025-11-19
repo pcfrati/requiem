@@ -101,5 +101,36 @@ body {
     100% { transform: translate(0, 0); }
   }
   
-  
+  .computer-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.computer-bg {
+  position: absolute;
+  width: 80%; /* Ajuste conforme necessário */
+  max-width: 1200px;
+  height: auto;
+  z-index: 0;
+  image-rendering: pixelated;
+}
+
+.game-screen {
+  position: relative;
+  z-index: 1;
+  /* Ajuste esses valores para posicionar o jogo dentro da tela do computador */
+  transform: scale(0.6); /* Diminui o tamanho do jogo */
+  margin-top: -50px; /* Move para cima/baixo */
+  margin-left: 0px; /* Move para esquerda/direita */
+}
+
+/* Ajuste o canvas para não ter borda se quiser */
+canvas, #gifRecompensa {
+  border: none;
+  box-shadow: none;
+}
   

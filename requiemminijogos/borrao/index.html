@@ -7,22 +7,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <h1>Revele a imagem</h1>
-  <canvas id="gameCanvas" width="600" height="500"></canvas>
-
-  <div class="slider-container">
-    <input type="range" id="slider1" min="0" max="100" value="50">
+  <div class="computer-container">
+    <img src="img/television.png" alt="Computador" class="computer-bg">
+    
+    <!-- O jogo fica por cima, posicionado na tela do computador -->
+    <div class="game-screen">
+      <h1>Revele a imagem</h1>
+      <canvas id="gameCanvas" width="600" height="500"></canvas>
+      <img id="gifRecompensa" src="img/recompensa.gif" width="600" height="500" style="display: none;">
+      
+      <div class="slider-container">
+        <input type="range" id="slider1" min="0" max="100" value="50">
+      </div>
+      <div class="slider-container">
+        <input type="range" id="slider2" min="0" max="100" value="50">
+      </div>
+      
+      <div>
+        <button id="continueBtn">Pegar recompensa</button>
+      </div>
+    </div>
   </div>
-  <div class="slider-container">
-    <input type="range" id="slider2" min="0" max="100" value="50">
-  </div>
-  
 
-  <div>
-    <button id="continueBtn">Pegar recompensa</button>
-  </div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
