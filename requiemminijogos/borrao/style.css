@@ -1,113 +1,106 @@
 body {
-    margin: 0;
-    background-color: #000;
-    color: #3233ff;
-    font-family: 'Press Start 2P', monospace;
-    text-align: center;
-    image-rendering: pixelated;
-    overflow: hidden;
-  }
-  
-  canvas {
-    border: 2px solid #3233ff;
-    box-shadow: 0 0 20px #3233ff;
-    image-rendering: pixelated;
-  
-    position: relative;
-    z-index: 1;
-    max-width: 90vw;
-    max-height: 70vh;
-  }
-  
-  canvas::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: repeating-linear-gradient(
-      to bottom,
-      rgba(0, 255, 153, 0.05),
-      rgba(0, 255, 153, 0.05) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-    z-index: 2;
-  }
-  
-  .slider-container {
-    margin: 20px;
-  }
-  
-  input[type=range] {
-    -webkit-appearance: none;
-    width: 300px;
-    height: 10px;
-    background: #03002a;
-    border: 2px solid #3233ff;
-    image-rendering: pixelated;
-    box-shadow: 0 0 5px #3233ff;
-  }
-  
-  input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 14px;
-    height: 14px;
-    background: #3233ff;
-    border: 2px solid #000;
-    cursor: pointer;
-    box-shadow: 0 0 3px #3233ff;
-  }
-  
-  input[type=range]::-moz-range-thumb {
-    width: 14px;
-    height: 14px;
-    background: #3233ff;
-    border: 2px solid #000;
-    cursor: pointer;
-  }
-  
-  #continueBtn {
-    display: none;
-    margin-top: 10px;
-    padding: 12px 32px;
-    background: transparent;
-    border: 2px solid #3233ff;
-    color: #3233ff;
-    font-size: 14px;
-    font-family: 'Press Start 2P', monospace;
-    border-radius: 0;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-    box-shadow: 0 0 8px #3233ff;
-    image-rendering: pixelated;
-  }
-  
-  #continueBtn:hover {
-    background: #3233ff;
-    color: #000;
-    animation: glitch 0.6s infinite;
-  }
-  
-  @keyframes glitch {
-    0% { transform: translate(0, 0); }
-    20% { transform: translate(-1px, 1px); }
-    40% { transform: translate(1px, -1px); }
-    60% { transform: translate(-1px, -1px); }
-    80% { transform: translate(1px, 1px); }
-    100% { transform: translate(0, 0); }
-  }
-  
-  .computer-container {
-  position: relative;
+  margin: 0;
+  background-color: #000000;
+  color: #5e9891;
+  font-family: 'Press Start 2P', monospace;
+  text-align: center;
+  image-rendering: pixelated;
+  overflow: hidden;
+}
+
+.arcade-container {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #000000;
+  position: relative;
+}
+
+.image-container {
+  border: 2px solid #5e9891;
+  box-shadow: 0 0 20px #5e9891;
+  padding: 10px;
+  background: 
+    /* Efeito de scanlines */
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 1px,
+      rgba(0, 255, 153, 0.05) 1px,
+      rgba(0, 255, 153, 0.05) 2px
+    ),
+    /* Fundo escuro */
+    #03002a;
+  display: inline-block;
+  margin: 10px 0;
+}
+
+canvas {
+  border: none;
+  box-shadow: none;
+  image-rendering: pixelated;
+  display: block;
+  position: relative;
+  z-index: 1;
+  max-width: 90vw;
+  max-height: 70vh;
+}
+
+.slider-container {
+  margin: 20px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 300px;
+  height: 10px;
+  background: #03002a;
+  border: 2px solid #5e9891;
+  image-rendering: pixelated;
+  box-shadow: 0 0 5px #5e9891;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #5e9891;
+  border: 2px solid #000;
+  cursor: pointer;
+  box-shadow: 0 0 3px rgb(77, 124, 119);
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: rgb(94, 152, 145);
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+#continueBtn {
+  display: none;
+  margin-top: 10px;
+  padding: 12px 32px;
+  background: transparent;
+  border: 2px solid rgb(94, 152, 145);
+  color: rgb(94, 152, 145);
+  font-size: 14px;
+  font-family: 'Press Start 2P', monospace;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  box-shadow: 0 0 8px rgb(94, 152, 145);
+  image-rendering: pixelated;
+}
+
+#continueBtn:hover {
+  background: rgb(94, 152, 145);
+  color: #000;
+  animation: glitch 0.6s infinite;
 }
 
 .computer-bg {
@@ -117,20 +110,89 @@ body {
   height: auto;
   z-index: 0;
   image-rendering: pixelated;
+  background-color: #000000;
 }
 
-.game-screen {
+.telajogo {
   position: relative;
   z-index: 1;
-  /* Ajuste esses valores para posicionar o jogo dentro da tela do computador */
-  transform: scale(0.6); /* Diminui o tamanho do jogo */
-  margin-top: -50px; /* Move para cima/baixo */
-  margin-left: 0px; /* Move para esquerda/direita */
+  transform: scale(0.6);
+  margin-top: -10px;
+  margin-left: 0px;
+  border-left: 27px solid #000;
+  border-right: 27px solid #000;
 }
 
-/* Ajuste o canvas para não ter borda se quiser */
-canvas, #gifRecompensa {
-  border: none;
-  box-shadow: none;
+/* Ajuste para o GIF */
+#gifRecompensa, .gif-recompensa {
+  border: none !important;
+  box-shadow: none !important;
+  display: block;
 }
-  
+
+/* Estilo para o GIF quando for criado dinamicamente */
+.gif-recompensa {
+  width: 600px;
+  height: 500px;
+  image-rendering: pixelated;
+}
+
+/* Estilos para a tela de recompensa */
+.recompensa-screen {
+  position: absolute;
+  z-index: 1;
+  transform: scale(0.6);
+  margin-top: -10px;
+  margin-left: 0px;
+  border-left: 27px solid #000;
+  border-right: 27px solid #000;
+  width: 900px;
+  height: 867px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.recompensa-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  color: #5e9891;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.recompensa-text {
+  font-size: 30px;
+  line-height: 1.8;
+  color: #5e9891;
+}
+
+.recompensa-screen img {
+  width: 400px;
+  height: 350px;
+  image-rendering: pixelated;
+}
+
+#confirmBtn {
+  margin-top: 20px;
+  padding: 22px 42px;
+  background: transparent;
+  border: 2px solid #5e9891;
+  color: #5e9891;
+  font-size: 17px;
+  font-family: 'Press Start 2P', monospace;
+  cursor: pointer;
+  box-shadow: 0 0 6px #5e9891;
+  transition: background 0.3s, color 0.3s;
+}
+
+#confirmBtn:hover {
+  background: #5e9891;
+  color: #000;
+}

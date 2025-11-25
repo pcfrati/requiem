@@ -217,11 +217,8 @@
   </style>
 </head>
 <body>
-  <div class="computer-container">
-    <img src="img/television.png" alt="Computador" class="computer-bg">
-    
-    <div class="game-screen">
-      <h1 id="gameTitle">Clique nos olhos na ordem certa</h1>
+  <div class="arcade-container">
+    <img src="https://i.ibb.co/XfwV76Q5/television.png" alt="Computador" class="computer-bg">
       
       <div id="gameCanvas" class="game-canvas">
         <!-- Olhos serão gerados pelo JavaScript -->
@@ -241,6 +238,16 @@
       <div id="hintBox" class="hint-box hidden">
         A sequência tem <span id="sequenceLength"></span> olhos.<br/>
         Comece pelos cantos!
+      </div>
+    </div>
+
+    <!-- Tela de recompensa (posicionada no mesmo lugar da telajogo) -->
+    <div id="recompensaScreen" class="recompensa-screen">
+      <div class="recompensa-content">
+        <div class="recompensa-text">Recompensa recebida</div>
+        <img src="https://i.ibb.co/tpLfpkrH/bateria-litio.png" alt="Bateria de Lítio" />
+        <div class="recompensa-text">Leve até a placa mãe.</div>
+        <button id="confirmBtn">ok</button>
       </div>
     </div>
   </div>

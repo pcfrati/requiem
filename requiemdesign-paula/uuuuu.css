@@ -1,3 +1,36 @@
+.link-internal {
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+	  font-size: 25px;
+ 	  position: relative;
+    top: -30px;
+}
+.link-internal:hover {
+    text-decoration: none;
+ 	color: #F51F44;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- Correção de centralização no SugarCube --- */
 #story {
 
@@ -72,7 +105,7 @@ body {
   border: none;
   padding: 0;
   position: absolute;
-  top: 10%;
+  top: 7%;
   left: 6%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -88,6 +121,33 @@ body {
 .seta:hover {
   opacity: 80%;
 }
+
+
+
+.seta1 {
+  background: none;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: 7%;
+  left: 6%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: shake 0.5s infinite;
+  cursor: pointer;
+}
+
+.seta1 img {
+  width: 107px;
+  image-rendering: pixelated;
+}
+
+.seta1:hover {
+  opacity: 80%;
+}
+
+
+
 
 /* Tela principal */
 .tela {
@@ -148,6 +208,34 @@ body {
 
 
 
+.botao-nivelX {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 432.5px;
+  height: 417.5px;
+  position: relative;
+  transition: all 0.2s ease;
+  bottom: 25px;
+}
+
+.botao-nivelX img {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.botao-nivelX:hover {
+  transform: translateY(3px);
+}
+
+.botao-nivelX:active {
+  opacity: 50%;
+}
+
+
+
+
 
 
 /* === HOME === */
@@ -187,6 +275,11 @@ body {
 
 .arcade-container .seta2,
 .arcade-container .seta2 * {
+  animation: none !important;
+}
+
+.arcade-container .seta1,
+.arcade-container .seta1 * {
   animation: none !important;
 }
 
@@ -305,7 +398,6 @@ body {
   width: 1200px; /* 1800 * 2/3 */
   height: 867px; /* 1300 * 2/3 */
   position: relative;
-  background-image: url();
   background-size: auto 100%;
   background-position: center center;
   background-repeat: no-repeat;
@@ -316,7 +408,7 @@ body {
 
 /* Estado quando o menu está aberto */
 .game-screen1.menu-open {
-  background-position: calc(50% - 83px) center; /* 125 * 2/3 */
+  background-position: calc(50% - 83px) center;
 }
 
 /* ===== BOTÕES LATERAIS ===== */
@@ -328,10 +420,10 @@ body {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 15px; /* 22 * 2/3 */
+  gap: 1px;
   background-color: #000000;
   border-radius: 20px 0 0px 20px; /* 30 * 2/3 */
-  padding: 20px 0px 20px 20px; /* 30 * 2/3 */
+  padding-left: 20px;
   z-index: 3;
   transition: opacity 0.3s ease;
 }
@@ -344,8 +436,8 @@ body {
 
 /* Estilização dos botões dentro de botoes-lateral */
 .botoes-lateral button {
-  width: 33px; /* 50 * 2/3 */
-  height: 33px; /* 50 * 2/3 */
+  width: 33px;
+  height: 33px; 
   border: none;
   cursor: pointer;
 }
@@ -364,18 +456,18 @@ body {
 #menu {
   position: absolute;
   top: 47%;
-  right: -347px; /* 520 * 2/3 */
-  width: 347px; /* 520 * 2/3 */
+  right: -347px; 
+  width: 347px; 
   height: 65%;
   background-color: #000000;
   color: white;
-  padding: 13px; /* 20 * 2/3 */
+  padding: 13px; 
   transition: right 0.6s ease;
   z-index: 2;
   display: flex;
   flex-direction: column;
   transform: translateY(-50%);
-  border-radius: 20px 0 0px 20px; /* 30 * 2/3 */
+  border-radius: 20px 0 0px 20px; /
 }
 
 /* Estado aberto do menu */
@@ -387,10 +479,11 @@ body {
 .botoes-menu {
   display: none;
   flex-direction: row;
-  gap: 15px; /* 22 * 2/3 */
-  padding-left: 7px; /* 10 * 2/3 */
-  margin-bottom: 13px; /* 20 * 2/3 */
-  margin-left: 33px; /* 50 * 2/3 */
+  gap: 10px; 
+  padding-left: 7px;
+  margin-bottom: 13px; 
+  margin-left: 33px; 
+  transform: translateY(-15px);
 }
 
 /* Mostra botões quando menu está aberto */
@@ -400,8 +493,8 @@ body {
 
 /* Estilização dos botões dentro de botoes-menu */
 .botoes-menu button {
-  width: 33px; /* 50 * 2/3 */
-  height: 33px; /* 50 * 2/3 */
+  width: 33px;
+  height: 33px;
   border: none;
   cursor: pointer;
 }
@@ -420,60 +513,46 @@ body {
 .menu-botoes-container {
   display: flex;
   flex-direction: column;
-  gap: 33px; /* 50 * 2/3 */
+  gap: 2px;
   align-items: center;
-  margin-top: 2px; /* 3 * 2/3 */
   flex: 1;
-  justify-content: center;
+  margin: 0 !important;
+  padding: 0 !important;
+  justify-content: flex-start;
+  transform: translateY(-75px);
 }
+
 
 /* ===== ESTILOS PIXEL ART PARA BOTÕES ===== */
 
-/**
- * Botões com estilo pixelado
- * Usa a fonte VT323 para efeito retrô
- */
 .pixel2 {
-  font-size: 13px; /* 20 * 2/3 */
+  font-size: 10px; 
   color: red;
   height: auto;
   font-family: 'VT323';
   position: relative;
   display: inline-block;
-  vertical-align: top;
-  text-transform: uppercase;
   cursor: pointer;
   user-select: none;
   text-align: center;
-  width: 273px; /* 410 * 2/3 */
-  height: 87px; /* 130 * 2/3 */
 }
 
 /* Efeito de pressionar */
 .pixel2:active {
-  top: 1px; /* 2 * 2/3 */
+  top: 1px; 
 }
 
-/* Estrutura base do botão pixelado */
-.pixel2 {
-  position: relative;
-  display: block;
-  margin: 0;
-  font-family: 'VT323';
-  text-transform: uppercase;
-  font-size: 13px; /* 20 * 2/3 */
-  color: red;
-}
+
 
 /* Camadas de efeito 3D para o botão pixelado */
 .pixel2::before {
   content: "";
   display: block;
   position: absolute;
-  top: 13px; /* 20 * 2/3 */
-  bottom: 13px; /* 20 * 2/3 */
-  left: -13px; /* -20 * 2/3 */
-  right: -13px; /* -20 * 2/3 */
+  top: 13px; 
+  bottom: 13px; 
+  left: -13px; 
+  right: -13px;
   background: white;
   z-index: -1;
 }
@@ -482,23 +561,23 @@ body {
   content: "";
   display: block;
   position: absolute;
-  top: 5px; /* 8 * 2/3 */
-  bottom: 5px; /* 8 * 2/3 */
-  left: -8px; /* -12 * 2/3 */
-  right: -8px; /* -12 * 2/3 */
+  top: 5px; 
+  bottom: 5px; 
+  left: -8px; 
+  right: -8px; 
   background: white;
   z-index: -1;
 }
 
 /* Corpo principal do botão */
 .pixel2 {
-  padding: 10px 7px; /* 15 * 2/3, 10 * 2/3 */
+  padding: 0px 7px; 
   position: relative;
   background: white;
-  width: 273px; /* 410 * 2/3 */
-  height: 87px; /* 130 * 2/3 */
+  width: 273px; 
+  height: 80px; 
   z-index: 2;
-  border: 1px solid rgb(255, 255, 255); /* 2 * 2/3 */
+  border: 1px solid rgb(255, 255, 255);
 }
 
 /* ===== BOTÕES COM IMAGEM ===== */
@@ -509,7 +588,7 @@ body {
   align-items: center;
   justify-content: center;
   background: #c4d6a8;
-  border: 1px solid #c4d6a8; /* 2 * 2/3 */
+  border: 1px solid #c4d6a8;
   cursor: default;
 }
 
@@ -517,7 +596,7 @@ body {
 .pixel2.imagem-botao img {
   width: 100%;
   height: auto;
-  max-height: 53px; /* 80 * 2/3 */
+  max-height: 53px;
   object-fit: contain;
   image-rendering: pixelated;
 }
@@ -564,7 +643,7 @@ body {
 /* Imagem móvel na tela */
 .imagem-movel {
   position: absolute;
-  top: 22%;
+  top: 19%;
   left: 45%;
   transition: all 0.6s ease;
   z-index: 1;
@@ -576,8 +655,26 @@ body {
   image-rendering: pixelated;
 }
 
+.imagem-movel3 {
+  position: absolute;
+  top: 19%;
+  left: 45%;
+  transition: all 0.6s ease;
+  z-index: 1;
+}
+
+.imagem-movel3 img {
+  width: 240px; /* 330 * 2/3 */
+  height: auto;
+  image-rendering: pixelated;
+}
+
 /* Move imagem quando menu abre */
 .game-screen1.menu-open .imagem-movel {
+  left: calc(38% - 7px); /* 10 * 2/3 */
+}
+
+.game-screen1.menu-open .imagem-movel3 {
   left: calc(38% - 7px); /* 10 * 2/3 */
 }
 
@@ -587,8 +684,8 @@ body {
   border: none;
   padding: 0;
   position: absolute;
-  top: 4%;
-  left: 3%;
+  top: 8%;
+  left: 6%;
   transform: translate(-50%, -50%);
   z-index: 2;
   animation: shake 0.5s infinite;
@@ -596,7 +693,7 @@ body {
 }
 
 .seta2 img {
-  width: 107px; /* 160 * 2/3 */
+  width: 107px;
   image-rendering: pixelated;
 }
 
@@ -611,13 +708,23 @@ body {
   top: 7%;
   right: 5%;
   transform: translate(50%, -50%);
-  width: 63px; /* 95 * 2/3 */
-  height: 63px; /* 95 * 2/3 */
+  width: 63px;
+  height: 63px;
   background: transparent;
   border: none;
   cursor: pointer;
   z-index: 2;
   transition: all 0.6s ease;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.game-screen1.menu-open .botao-cruz {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(50%, -50%) scale(0.8);
 }
 
 /* Partes da cruz */
@@ -627,9 +734,9 @@ body {
 .botao-cruz span::after {
   content: "";
   position: absolute;
-  width: 17px; /* 25 * 2/3 */
-  height: 17px; /* 25 * 2/3 */
-  border: 9px solid white; /* 13 * 2/3 */
+  width: 17px; 
+  height: 17px; 
+  border: 9px solid white; 
   transition: transform 0.5s ease-out, border-color 0.3s;
   transform-origin: center;
 }
@@ -665,19 +772,19 @@ body {
 
 /* Estados do botão cruz */
 .botao-cruz.ativo::before {
-  transform: rotate(180deg) translate(4px, 4px); /* 6 * 2/3 */
+  transform: rotate(180deg) translate(4px, 4px); 
 }
 
 .botao-cruz.ativo::after {
-  transform: rotate(-180deg) translate(-4px, 4px); /* 6 * 2/3 */
+  transform: rotate(-180deg) translate(-4px, 4px); 
 }
 
 .botao-cruz.ativo span::before {
-  transform: rotate(-180deg) translate(4px, -4px); /* 6 * 2/3 */
+  transform: rotate(-180deg) translate(4px, -4px); 
 }
 
 .botao-cruz.ativo span::after {
-  transform: rotate(180deg) translate(-4px, -4px); /* 6 * 2/3 */
+  transform: rotate(180deg) translate(-4px, -4px);
 }
 
 /* Efeito hover no botão cruz */
@@ -685,5 +792,259 @@ body {
 .botao-cruz:hover::after,
 .botao-cruz:hover span::before,
 .botao-cruz:hover span::after {
-  border-color: #5AFE03;
+  border-color: #f1f1f1;
+}
+
+
+
+
+
+
+
+
+.bottom-container {
+  position: absolute;
+  bottom: 110px;
+  left: 50%;
+  height: 0px;
+  transform: translateX(-50%);
+  width: 80%; 
+  max-width: 900px;
+  background-color: #000000;
+  border: 10px solid #ffffff;
+  z-index: 10;
+  transition: all 0.6s ease;
+  opacity: 1;
+  visibility: visible;
+  padding-left: 50px;
+  padding-bottom: 100px;
+}
+
+/* Estado quando o menu está aberto */
+.bottom-container.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(20px);
+}
+
+.content-container{
+	transform: translateY(-55px);
+  	width: 790px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Remove o fundo azul padrão do navegador nos botões */
+button {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove fundo azul específico no Chrome quando não há background */
+button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Garantir que botões sem fundo continuem sem fundo */
+button:not(#botao-verde-lateral):not(#botao-vermelho-lateral):not(#botao-verde-menu):not(#botao-vermelho-menu) {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+.game-screen1.modo-cruz {
+  background: #000000 !important;
+  background-image: none !important;
+}
+
+.seta2.modo-cruz {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Container inferior aumentado no modo cruz */
+.bottom-container.modo-cruz {
+  width: 90%;
+  max-width: 1000px;
+  height: 150px;
+  padding-left: 105px;
+  border-width: 8px;
+  transform: translateX(-50%) scale(1.1);
+}
+
+/* Conteúdo do container aumentado */
+.bottom-container.modo-cruz .container-content {
+  transform: translateY(-55px);
+  width: 790px;
+}
+
+/* Imagem móvel aumentada no modo cruz */
+.imagem-movel.modo-cruz {
+  transform: scale(1.8);
+  z-index: 5;
+  bottom: 22px;
+}
+
+.imagem-movel.modo-cruz img {
+  width: 280px; /* Aumenta de 220px */
+  filter: brightness(1.2);
+}
+
+
+
+.imagem-movel3.modo-cruz {
+  transform: scale(1.8);
+  z-index: 5;
+  bottom: 22px;
+}
+
+.imagem-movel3.modo-cruz img {
+  width: 290px; /* Aumenta de 220px */
+  filter: brightness(1.2);
+  transform: translateX(-30px);
+}
+
+.game-screen1.modo-cruz .imagem-movel3 {
+  left: 40%;
+  top: 25%;
+}
+
+/* Botões laterais escondidos no modo cruz */
+.game-screen1.modo-cruz .botoes-lateral3 {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Ajuste da posição da imagem no modo cruz */
+.game-screen1.modo-cruz .imagem-movel {
+  left: 40%;
+  top: 25%;
+}
+
+/* Botões laterais escondidos no modo cruz */
+.game-screen1.modo-cruz .botoes-lateral {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== OVERLAY DE TRANSIÇÃO ===== */
+.transicao-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  z-index: 1000;
+  pointer-events: none;
+  transition: background 0.3s ease-in-out;
+}
+
+.transicao-overlay.ativo {
+  background: rgba(0, 0, 0, 0.95); /* Quase totalmente preto */
+}
+
+/* ===== CONTROLE DE TRANSIÇÕES CRÍTICO ===== */
+
+/* DESABILITA COMPLETAMENTE TODAS AS TRANSIÇÕES DURANTE A MUDANÇA */
+.arcade-container.transicao-ativa .game-screen1,
+.arcade-container.transicao-ativa .bottom-container,
+.arcade-container.transicao-ativa .imagem-movel,
+.arcade-container.transicao-ativa .imagem-movel3,
+.arcade-container.transicao-ativa .botoes-lateral,
+.arcade-container.transicao-ativa .seta2 {
+  transition: none !important;
+}
+
+/* Transições normais apenas quando NÃO está em transição */
+.arcade-container:not(.transicao-ativa) .game-screen1,
+.arcade-container:not(.transicao-ativa) .bottom-container,
+.arcade-container:not(.transicao-ativa) .imagem-movel,
+.arcade-container:not(.transicao-ativa) .imagem-movel3,
+.arcade-container:not(.transicao-ativa) .botoes-lateral,
+.arcade-container:not(.transicao-ativa) .seta2 {
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Garante que o container inferior fique por cima no modo cruz */
+.bottom-container.modo-cruz {
+  z-index: 15;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* === ESTILIZAÇÃO DOS LINKS PIXEL2 PERSONALIZADOS === */
+.pixel2-link {
+  color: #000000 !important;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 25px;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 80px;
+  text-align: center;
+  transition: color 0.2s ease;
+  cursor: pointer;
+  transform: translateY(-18px);
+}
+
+.pixel2-link:hover {
+  color: #F51F44 !important;
+  text-decoration: none;
+}
+
+.pixel2 {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pixel2:hover {
+  background: #f0f0f0;
+}
+
+.pixel2:hover::before {
+  background: #f0f0f0;
+}
+
+.pixel2:hover::after {
+  background: #f0f0f0;
 }

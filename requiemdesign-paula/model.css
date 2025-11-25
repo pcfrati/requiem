@@ -39,7 +39,7 @@ body {
   width: 1200px; /* 1800 * 2/3 */
   height: 867px; /* 1300 * 2/3 */
   position: relative;
-  background-color: rgb(59, 59, 59);
+  background-color: brown;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -47,18 +47,4 @@ body {
   overflow: hidden;
   border-left: 27px solid #000;
   border-right: 27px solid #000;
-}
-
-/* Container dos botões */
-.jogos-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 553px;
-  height: 367px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  z-index: 3;
 }
