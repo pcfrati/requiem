@@ -4,9 +4,12 @@ const slider1 = document.getElementById("slider1");
 const slider2 = document.getElementById("slider2");
 const btn = document.getElementById("continueBtn");
 const imageContainer = document.querySelector('.image-container');
+const recompensaScreen = document.getElementById("recompensaScreen");
+const confirmBtn = document.getElementById("confirmBtn");
+const telajogo = document.querySelector('.telajogo');
 
 const imagem = new Image();
-imagem.src = "img/zoios.png";
+imagem.src = "https://i.ibb.co/9mbm6DTR/zoios.png";
 
 // multiplica por 61 pra gerar um número entre 0 e 60
 // isso pq os sliders vao de 0 a 100, e para dificultar coloquei entre 20 e 80
@@ -38,17 +41,9 @@ function desenhar() {
       slider1.removeEventListener("input", desenhar);
       slider2.removeEventListener("input", desenhar);
       
-      // Esconde o canvas e cria uma tag img com o GIF
+      // Esconde o canvas e mostra o GIF
       canvas.style.display = "none";
-      
-      const gifElement = document.createElement("img");
-      gifElement.src = "img/zoios.gif";
-      gifElement.width = 600;
-      gifElement.height = 500;
-      gifElement.classList.add("gif-recompensa");
-      
-      // Insere o GIF no container da imagem (no lugar do canvas)
-      imageContainer.appendChild(gifElement);
+      document.getElementById("gifRecompensa").style.display = "block";
       
       return;
     }
@@ -65,9 +60,20 @@ function desenhar() {
   ctx.drawImage(imagem, 0, 0, canvas.width, canvas.height);
 }
 
+// Event listener para o botão "Pegar recompensa"
+btn.addEventListener("click", () => {
+  // Esconde a tela do jogo e mostra a tela de recompensa
+  telajogo.style.display = 'none';
+  recompensaScreen.style.display = 'flex';
+});
+
+// Event listener para o botão "ok" da tela de recompensa
+confirmBtn.addEventListener("click", () => {
+  // Aqui você pode adicionar a lógica para continuar o jogo
+  // Por exemplo: voltar para o mapa principal ou próxima fase
+  console.log("Recompensa confirmada!");
+  // window.location.href = "proxima_fase.html"; // Descomente se quiser redirecionar
+});
+
 slider1.addEventListener("input", desenhar); // toda vez que você mexe nos sliders, ele redesenha a imagem com outro nível de borrão
 slider2.addEventListener("input", desenhar);
-
-btn.addEventListener("click", () => {
-  window.location.href = "recompensa.html";
-});

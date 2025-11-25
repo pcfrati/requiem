@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="arcade-container">
-    <img src="img/television.png" alt="Computador" class="computer-bg">
+    <img src="https://i.ibb.co/XfwV76Q5/television.png" alt="Computador" class="computer-bg">
     
     <!-- O jogo fica por cima, posicionado na tela do computador -->
     <div class="telajogo">
@@ -16,7 +16,7 @@
       
       <div class="image-container">
         <canvas id="gameCanvas" width="600" height="500"></canvas>
-        <img id="gifRecompensa" src="img/recompensa.gif" class="gif-recompensa" style="display: none;">
+        <img id="gifRecompensa" src="https://i.ibb.co/qF0jsjkg/zoios.gif" class="gif-recompensa" style="display: none;">
       </div>
       
       <div class="slider-container">
@@ -30,13 +30,16 @@
         <button id="continueBtn">Pegar recompensa</button>
       </div>
     </div>
-  </div>
 
-  <div id="recompensaScreen">
-    <div class="recompensa-text">Recompensa recebida</div>
-    <img src="requiemminijogos/borrao/img/bateria_litio.png" alt="Bateria de Lítio" />
-    <div class="recompensa-text">Leve até a placa mãe.</div>
-    <button id="confirmBtn">ok</button>
+    <!-- Tela de recompensa (posicionada no mesmo lugar da telajogo) -->
+    <div id="recompensaScreen" class="recompensa-screen">
+      <div class="recompensa-content">
+        <div class="recompensa-text">Recompensa recebida</div>
+        <img src="https://i.ibb.co/tpLfpkrH/bateria-litio.png" alt="Bateria de Lítio" />
+        <div class="recompensa-text">Leve até a placa mãe.</div>
+        <button id="confirmBtn">ok</button>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
