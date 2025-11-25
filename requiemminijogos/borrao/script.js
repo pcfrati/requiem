@@ -1,74 +1,189 @@
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
-const slider1 = document.getElementById("slider1");
-const slider2 = document.getElementById("slider2");
-const btn = document.getElementById("continueBtn");
-
-const imagem = new Image();
-imagem.src = "img/zoios.png";
-
-// multiplica por 61 pra gerar um número entre 0 e 60
-// isso pq os sliders vao de 0 a 100, e para dificultar coloquei entre 20 e 80
-const centro1 = Math.floor(Math.random() * 61) + 20;
-const centro2 = Math.floor(Math.random() * 61) + 20;
-
-// espera a imagem carregar, aí coloca os sliders em valores iniciais (10 e 90) e chama a função desenhar() pra mostrar a imagem.
-imagem.onload = () => {
-  slider1.value = 10;
-  slider2.value = 90;
-  desenhar();
-};
-
-// desenha a imagem e decide se ela vai aparecer embaçada ou nítida, com base na posição dos sliders
-let imagemRevelada = false;
-
-function desenhar() {
-  const pos1 = parseInt(slider1.value);
-  const pos2 = parseInt(slider2.value);
-
-  if (Math.abs(pos1 - centro1) < 5 && Math.abs(pos2 - centro2) < 5) {
-    btn.style.display = "inline-block";
+    // Configuração do jogo
+    const correctSequence = [3, 9, 1, 7];
     
-    if (!imagemRevelada) {
-      imagemRevelada = true;
-      console.log("Acertou! Mostrando GIF...");
-      
-      // Remove os event listeners
-      slider1.removeEventListener("input", desenhar);
-      slider2.removeEventListener("input", desenhar);
-      
-      // Esconde o canvas e cria uma tag img com o GIF
-      canvas.style.display = "none";
-      
-      const gifElement = document.createElement("img");
-      gifElement.src = "img/zoios.gif";
-      gifElement.width = 600;
-      gifElement.height = 500;
-      gifElement.style.border = "2px solid #3233ff";
-      gifElement.style.boxShadow = "0 0 20px #3233ff";
-      gifElement.style.imageRendering = "pixelated";
-      
-      // Insere o GIF no lugar do canvas
-      canvas.parentNode.insertBefore(gifElement, canvas);
-      
-      return;
+    const eyePositions = [
+      { id: 1, top: '20%', left: '15%' },
+      { id: 2, top: '20%', left: '38%' },
+      { id: 3, top: '20%', left: '62%' },
+      { id: 4, top: '20%', left: '85%' },
+      { id: 5, top: '50%', left: '15%' },
+      { id: 6, top: '50%', left: '38%' },
+      { id: 7, top: '50%', left: '62%' },
+      { id: 8, top: '50%', left: '85%' },
+      { id: 9, top: '80%', left: '15%' },
+      { id: 10, top: '80%', left: '38%' },
+      { id: 11, top: '80%', left: '62%' },
+      { id: 12, top: '80%', left: '85%' },
+    ];
+
+    // Estado do jogo
+    let clickedSequence = [];
+    let gameWon = false;
+
+    // Elementos DOM
+    const gameCanvas = document.getElementById('gameCanvas');
+    const gifContainer = document.getElementById('gifContainer');
+    const gameTitle = document.getElementById('gameTitle');
+    const progressBar = document.getElementById('progressBar');
+    const hintBtn = document.getElementById('hintBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const rewardBtn = document.getElementById('rewardBtn');
+    const hintBox = document.getElementById('hintBox');
+    const sequenceLength = document.getElementById('sequenceLength');
+
+    // Inicializar jogo
+    function initGame() {
+      createEyes();
+      createProgressBar();
+      sequenceLength.textContent = correctSequence.length;
     }
-    
-  } else if (Math.abs(pos1 - centro1) < 20 && Math.abs(pos2 - centro2) < 20) {
-    btn.style.display = "none";
-    ctx.filter = "blur(3px)";
-  } else {
-    btn.style.display = "none";
-    ctx.filter = "blur(8px)";
-  }
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(imagem, 0, 0, canvas.width, canvas.height);
-}
+    // Criar olhos
+    function createEyes() {
+      eyePositions.forEach(pos => {
+        const eye = document.createElement('div');
+        eye.className = 'eye';
+        eye.dataset.id = pos.id;
+        eye.style.top = pos.top;
+        eye.style.left = pos.left;
+        
+        eye.innerHTML = `
+          <div class="eye-outer">
+            <div class="eye-pupil">
+              <div class="eye-shine"></div>
+            </div>
+          </div>
+        `;
+        
+        eye.addEventListener('click', () => handleEyeClick(pos.id, eye));
+        gameCanvas.appendChild(eye);
+      });
+    }
 
-slider1.addEventListener("input", desenhar); // toda vez que você mexe nos sliders, ele redesenha a imagem com outro nível de borrão
-slider2.addEventListener("input", desenhar);
+    // Criar barra de progresso
+    function createProgressBar() {
+      correctSequence.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = 'progress-dot';
+        dot.dataset.index = index;
+        progressBar.appendChild(dot);
+      });
+    }
 
-btn.addEventListener("click", () => {
-  window.location.href = "recompensa.html";
-});
+    // Handle click no olho
+    function handleEyeClick(eyeId, eyeElement) {
+      if (gameWon) return;
+      
+      clickedSequence.push(eyeId);
+      
+      // Adicionar classe clicked
+      eyeElement.classList.add('clicked');
+      
+      // Adicionar número da sequência
+      const numberBadge = document.createElement('div');
+      numberBadge.className = 'sequence-number';
+      numberBadge.textContent = clickedSequence.length;
+      eyeElement.appendChild(numberBadge);
+      
+      // Atualizar barra de progresso
+      updateProgressBar();
+      
+      // Verificar se está correto
+      const isCorrectSoFar = clickedSequence.every((id, index) => id === correctSequence[index]);
+      
+      if (!isCorrectSoFar) {
+        // Sequência errada - resetar
+        setTimeout(() => {
+          resetSequence();
+        }, 500);
+        return;
+      }
+      
+      // Verificar vitória
+      if (clickedSequence.length === correctSequence.length) {
+        winGame();
+      }
+    }
+
+    // Atualizar barra de progresso
+    function updateProgressBar() {
+      const dots = progressBar.querySelectorAll('.progress-dot');
+      dots.forEach((dot, index) => {
+        if (index < clickedSequence.length) {
+          dot.classList.add('filled');
+        } else {
+          dot.classList.remove('filled');
+        }
+      });
+    }
+
+    // Resetar sequência
+    function resetSequence() {
+      clickedSequence = [];
+      
+      // Remover classes e badges
+      const eyes = document.querySelectorAll('.eye');
+      eyes.forEach(eye => {
+        eye.classList.remove('clicked');
+        const badge = eye.querySelector('.sequence-number');
+        if (badge) badge.remove();
+      });
+      
+      updateProgressBar();
+    }
+
+    // Ganhar jogo
+    function winGame() {
+      gameWon = true;
+      gameTitle.textContent = 'SEQUÊNCIA CORRETA!';
+      
+      // Esconder canvas, mostrar GIF
+      gameCanvas.classList.add('hidden');
+      gifContainer.classList.remove('hidden');
+      
+      // Trocar botões
+      hintBtn.classList.add('hidden');
+      resetBtn.classList.remove('hidden');
+      rewardBtn.classList.remove('hidden');
+      hintBox.classList.add('hidden');
+    }
+
+    // Resetar jogo completo
+    function resetGame() {
+      gameWon = false;
+      clickedSequence = [];
+      
+      gameTitle.textContent = 'Clique nos olhos na ordem certa';
+      
+      // Mostrar canvas, esconder GIF
+      gameCanvas.classList.remove('hidden');
+      gifContainer.classList.add('hidden');
+      
+      // Trocar botões
+      hintBtn.classList.remove('hidden');
+      resetBtn.classList.add('hidden');
+      rewardBtn.classList.add('hidden');
+      
+      // Limpar olhos
+      const eyes = document.querySelectorAll('.eye');
+      eyes.forEach(eye => eye.remove());
+      
+      // Recriar jogo
+      createEyes();
+      updateProgressBar();
+    }
+
+    // Event listeners
+    hintBtn.addEventListener('click', () => {
+      hintBox.classList.toggle('hidden');
+      hintBtn.textContent = hintBox.classList.contains('hidden') ? 'Mostrar dica' : 'Esconder dica';
+    });
+
+    resetBtn.addEventListener('click', resetGame);
+
+    rewardBtn.addEventListener('click', () => {
+      window.location.href = 'recompensa.html';
+    });
+
+    // Iniciar jogo quando carregar
+    initGame();
