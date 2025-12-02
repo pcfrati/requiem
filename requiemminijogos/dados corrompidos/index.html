@@ -8,19 +8,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Resolva o anagrama e siga para a próxima frase.</h1>
-    <div class="container">
-        <div class="caixa">
-            <div class="anagrama" id="anagrama">SOGARNFRETM</div>
-            <input type="text" id="resposta" placeholder="Digite a resposta">
-            <button id="verificarBtn" onclick="verificarResposta()">➜</button>
+    <div class="arcade-container">
+        
+        <!-- Tela do jogo -->
+        <div class="telajogo">
+            <h1>Resolva o anagrama e siga para a próxima frase.</h1>
+            <div class="container">
+                <div class="caixa">
+                    <div class="anagrama" id="anagrama">SOGARNFRETM</div>
+                    <input type="text" id="resposta" placeholder="Digite a resposta">
+                    <button id="verificarBtn" onclick="verificarResposta()">➜</button>
+                </div>
+                <div id="frase"></div>
+            </div>
+            
+            <div>
+                <button id="continueBtn">Pegar recompensa</button>
+            </div>
         </div>
-        <div id="frase"></div>
+
+        <!-- Tela de recompensa (inicialmente escondida) -->
+        <div id="recompensaScreen" class="recompensa-screen">
+            <div class="recompensa-content">
+                <div class="recompensa-text">Recompensa recebida</div>
+                <img src="https://i.ibb.co/RkjVHybw/2-disco-rigido-danificado.png" alt="DiscoRigido" />
+                <div class="recompensa-text">Leve até a placa mãe.</div>
+                <button id="confirmBtn">ok</button>
+            </div>
+        </div>
     </div>
-    
-    <div">
-        <button id="continueBtn">Pegar recompensa</button>
-    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

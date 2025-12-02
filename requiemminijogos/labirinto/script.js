@@ -15,16 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
     right2: new Image(),
   };
 
-  playerImages.up1.src = 'img/jogador/cima.png';
-  playerImages.up2.src = 'img/jogador/cima2.png';
-  playerImages.up3.src = 'img/jogador/cima3.png';
-  playerImages.down1.src = 'img/jogador/baixo.png';
-  playerImages.down2.src = 'img/jogador/baixo2.png';
-  playerImages.down3.src = 'img/jogador/baixo3.png';
-  playerImages.left1.src = 'img/jogador/esquerda.png';
-  playerImages.left2.src = 'img/jogador/esquerda2.png';
-  playerImages.right1.src = 'img/jogador/direita.png';
-  playerImages.right2.src = 'img/jogador/direita2.png';
+  playerImages.up1.src = 'https://i.ibb.co/fdd3XJQB/cima.png';
+  playerImages.up2.src = 'https://i.ibb.co/ccxgC1vN/cima2.png';
+  playerImages.up3.src = 'https://i.ibb.co/hRkM1d6t/cima3.png';
+  playerImages.down1.src = 'https://i.ibb.co/0Vz34NkD/baixo.png';
+  playerImages.down2.src = 'https://i.ibb.co/ZRVRVxvd/baixo2.png';
+  playerImages.down3.src = 'https://i.ibb.co/mjqzNXk/baixo3.png';
+  playerImages.left1.src = 'https://i.ibb.co/Dfc1bt80/esquerda.png';
+  playerImages.left2.src = 'https://i.ibb.co/KpkvVQgq/esquerda2.png';
+  playerImages.right1.src = 'https://i.ibb.co/5X8wq0pp/direita.png';
+  playerImages.right2.src = 'https://i.ibb.co/gZgXYJD4/direita2.png';
 
   const MAZE_LAYOUT = [
     [1, 1, 1, 1, 1, 1, 1, 1],

@@ -8,9 +8,26 @@ body {
     align-items: center;
     image-rendering: pixelated;
     overflow: hidden;
-  }
+}
 
-  .container {
+.arcade-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    position: relative;
+}
+
+.telajogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
     margin-top: 40px;
     width: 60vh;
     border: 2px solid #3233ff;
@@ -18,23 +35,22 @@ body {
     border-radius: 20px;
     padding: 50px;
     text-align: center;
-    margin-left: 63vh;
-    }
+}
 
-  .caixa {
+.caixa {
     padding: 40px;
-  }
+}
 
-  .anagrama {
+.anagrama {
     font-size: 25px;
     font-weight: bold;
     color: #555;
     text-align: center;
     margin-right: 30px;
     margin-bottom: 12px;
-  }
+}
 
-  input {
+input {
     caret-color: transparent;
     width: 305px;
     height: 20px;
@@ -45,15 +61,15 @@ body {
     text-align: center;
     margin-bottom: 20px;
     cursor: text;
-  }
+}
 
-  #frase {
+#frase {
     font-family: 'Press Start 2P', monospace;
     font-size: 18px;
     display: block;
-  }
-  
-  #verificarBtn {
+}
+
+#verificarBtn {
     background-color: #000;
     padding: 5px 8px;
     font-size: 18px;
@@ -62,37 +78,36 @@ body {
     box-shadow: 0 0 8px #3233ff;
     font-family: 'Press Start 2P', monospace;
     border-radius: 5px;
-    cursor: pointer;;
-  }
+    cursor: pointer;
+}
 
-  #verificarBtn:hover {
+#verificarBtn:hover {
     background: #3233ff;
     color: #000;
-  }
+}
 
-  #resposta {
+#resposta {
     outline: none;
     margin-top: 0px;
     padding: 12px 32px;
     background: transparent;
     border: 2px solid #3233ff;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 12px;
     font-family: 'Press Start 2P', monospace;
     border-radius: 0;
     box-shadow: 0 0 8px #3233ff;
-  }
+}
 
-  #resposta:hover {
+#resposta:hover {
     outline: none;
     color: white;
     background: #000000;
     box-shadow: 0 0 8px #3233ff;
-  }
-  
-  #continueBtn {
+}
+
+#continueBtn {
     display: none;
-    margin-left: 84vh;
     margin-top: 15px;
     padding: 12px 32px;
     background: transparent;
@@ -104,22 +119,74 @@ body {
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
     box-shadow: 0 0 8px #3233ff;
-  }
-  
-  #continueBtn:hover {
+}
+
+#continueBtn:hover {
     background: #3233ff;
     color: #000;
     animation: glitch 0.6s infinite;
-  }
+}
 
-  @keyframes glitch {
+@keyframes glitch {
     0% { transform: translate(0, 0); }
     20% { transform: translate(-1px, 1px); }
     40% { transform: translate(1px, -1px); }
     60% { transform: translate(-1px, -1px); }
     80% { transform: translate(1px, 1px); }
     100% { transform: translate(0, 0); }
-  }
-  
-  
-  
+}
+
+/* Estilos para a tela de recompensa */
+.recompensa-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.recompensa-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    color: #3233ff;
+    text-align: center;
+}
+
+.recompensa-text {
+    font-size: 25px;
+    line-height: 1.8;
+    color: #3233ff;
+}
+
+.recompensa-screen img {
+    width: 300px;
+    height: 250px;
+    image-rendering: pixelated;
+}
+
+#confirmBtn {
+    margin-top: 20px;
+    padding: 12px 32px;
+    background: transparent;
+    border: 2px solid #3233ff;
+    color: #3233ff;
+    font-size: 12px;
+    font-family: 'Press Start 2P', monospace;
+    cursor: pointer;
+    box-shadow: 0 0 6px #3233ff;
+    transition: background 0.3s, color 0.3s;
+}
+
+#confirmBtn:hover {
+    background: #3233ff;
+    color: #000;
+}

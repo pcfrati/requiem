@@ -7,41 +7,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="arcade-container">
-    <img src="https://i.ibb.co/XfwV76Q5/television.png" alt="Computador" class="computer-bg">
-    
-    <!-- O jogo fica por cima, posicionado na tela do computador -->
-    <div class="telajogo">
-      <h1>Revele a imagem</h1>
-      
-      <div class="image-container">
-        <canvas id="gameCanvas" width="600" height="500"></canvas>
-        <img id="gifRecompensa" src="https://i.ibb.co/qF0jsjkg/zoios.gif" class="gif-recompensa" style="display: none;">
-      </div>
-      
-      <div class="slider-container">
-        <input type="range" id="slider1" min="0" max="100" value="50">
-      </div>
-      <div class="slider-container">
-        <input type="range" id="slider2" min="0" max="100" value="50">
-      </div>
-      
-      <div>
-        <button id="continueBtn">Pegar recompensa</button>
-      </div>
-    </div>
 
-    <!-- Tela de recompensa (posicionada no mesmo lugar da telajogo) -->
-    <div id="recompensaScreen" class="recompensa-screen">
-      <div class="recompensa-content">
-        <div class="recompensa-text">Recompensa recebida</div>
-        <img src="https://i.ibb.co/tpLfpkrH/bateria-litio.png" alt="Bateria de Lítio" />
-        <div class="recompensa-text">Leve até a placa mãe.</div>
-        <button id="confirmBtn">ok</button>
-      </div>
-    </div>
+  <h1>Revele a imagem</h1>
+  <canvas id="gameCanvas" width="600" height="500"></canvas>
+
+  <div class="slider-container">
+    <input type="range" id="slider1" min="0" max="100" value="50">
+  </div>
+  <div class="slider-container">
+    <input type="range" id="slider2" min="0" max="100" value="50">
+  </div>
+  
+
+  <div>
+    <button id="continueBtn">Pegar recompensa</button>
   </div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
